@@ -1,0 +1,86 @@
+Инструкция по запуску бота
+
+
+1. Подготовка виртуального окружения
+
+   Создание виртуального окружения
+   python -m venv venv
+
+   Активация (Windows)
+   venv\Scripts\activate
+
+   Активация (Linux/MacOS)
+   source venv/bin/activate
+
+
+2. Установка зависимостей
+
+   Установка всех необходимых библиотек
+   pip install -r requirements.txt
+
+
+3. Настройка конфигурации
+
+   Создайте файл .env
+   
+   Отредактируйте .env файл:
+    - BOT_TOKEN: получите у @BotFather
+    - ADMIN_IDS: ваш Telegram ID (можно узнать у @userinfobot)
+
+
+4. Подготовка данных
+
+   Убедитесь, что файл tools.csv находится в корне проекта
+   База данных создастся автоматически при первом запуске
+
+
+5. Запуск бота
+
+   Запуск основной версии
+   python bot.py
+
+   Или для Windows если возникают проблемы с asyncio:
+   python -m bot
+
+
+6. Проверка работоспособности
+
+   - Откройте Telegram и найдите вашего бота
+   - Отправьте команду /start
+   - Проверьте все основные функции:
+      Просмотр каталога (/catalog)
+      Оформление заявки (/order)
+      Админ-панель (/admin - если вы администратор)
+
+
+7. Остановка бота
+
+   В терминале нажмите:
+   Ctrl + C
+
+   Деактивация виртуального окружения (когда закончите работу)
+   deactivate
+
+
+8. Быстрый старт (одной командой):
+
+   Windows
+   python -m venv venv && venv\Scripts\activate && pip install -r requirements.txt && python bot.py
+
+   Linux/MacOS
+   python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python3 bot.py
+
+
+9. Частые проблемы и решения:
+
+1. "ModuleNotFoundError: No module named 'aiogram'"
+   - Активируйте виртуальное окружение: venv\Scripts\activate
+   - Установите зависимости: pip install -r requirements.txt
+
+2. Бот не отвечает на команды
+   - Проверьте BOT_TOKEN в файле .env
+   - Убедитесь, что бот не заблокирован
+
+3. Ошибки с базой данных
+   - Удалите файл database.db и перезапустите бота
+   - Проверьте наличие tools.csv в корневой папке
